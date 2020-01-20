@@ -1,0 +1,21 @@
+
+ul {
+    padding: 15px;
+}
+li {
+    padding: 5px;
+    list-style: none;
+    border: 2px solid teal;
+    border-radius: 5px;
+    margin-bottom: 2px;
+    text-align: center;
+
+}
+
+.selected-video {
+    background-color: lightblue;
+  }
+  
+  .unselected-video {
+    background-color: lightcoral;
+  }

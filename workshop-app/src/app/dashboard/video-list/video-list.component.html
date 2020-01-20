@@ -1,0 +1,25 @@
+
+<div>
+    <ul>
+    <li *ngFor="let video of videos" (click)="selectVideo(video)" [ngClass]="selectedClass(video)" >
+        <app-video-item [video]="video"></app-video-item>
+     </li>
+
+    </ul>
+
+</div>
+
+
+
+<!--
+<div>
+    <div class="two-across">
+        <section  class="card"  *ngFor="let video of videos">
+            <div class="card-content">
+                <div class="card-title">  {{ video.title }}</div>
+                <span> {{video.author}}</span>
+            </div>
+        </section>
+    </div>
+</div>
+-->

@@ -2,7 +2,7 @@
 <div>
     <ul>
     <li *ngFor="let video of videos" (click)="selectVideo(video)" [ngClass]="selectedClass(video)" >
-        <app-video-item [video]="video"></app-video-item>
+        <app-video-item [video]="video"  ></app-video-item>
      </li>
 
     </ul>

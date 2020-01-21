@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Video} from '../..//types';
 
 @Component({
@@ -6,22 +6,29 @@ import {Video} from '../..//types';
   templateUrl: './video-list.component.html',
   styleUrls: ['./video-list.component.scss']
 })
-export class VideoListComponent  {
-  @Input()videos: Video[];
-  selectedVideo : Video  | null;
-
+export class VideoListComponent implements OnInit {
+  @Input() videos: Video[];
+  selectedVideo: Video;
+  @Output() outputVideo = new EventEmitter<Video>();
   showJSON :  boolean = false;
+ 
   constructor() {
-    //this.selectedVideo = this.videos[0];
+    //this.selectedVideo = null;
    }
+
+   ngOnInit() {
+    this.selectedVideo = null;
+  }
+
 
 
   selectVideo(video: Video){
-    console.log('selected video ' , video);
+    console.log('videoList Compoment ... selected video ' , video);
     if(video === this.selectedVideo) {
       this.selectedVideo = null;
     }else {
       this.selectedVideo = video;
+      this.outputVideo.emit(this.selectedVideo);
     }
    
   }

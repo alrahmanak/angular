@@ -1,4 +1,4 @@
- <app-video-list [videos]="videosList" (outputVideo)="onSelect($event)"></app-video-list>
+ <app-video-list [videos]="videosList | async" (outputVideo)="onSelect($event)"></app-video-list>
 <app-video-player [passVideo]="selectedChildVideo"></app-video-player>
 <app-start-filters></app-start-filters>
 <!-- <pre *ngIf="showJSON">{{videos | json}}</pre> -->

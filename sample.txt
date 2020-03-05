@@ -1,0 +1,29 @@
+    // If filter is an empty string, replace with undefined
+    // This avoids having an empty key-value pair in the URL
+    const videoId = newSelection?.id || undefined;
+    const queryParams = { videoId };
+    // Navigate returns a promise, best practices dictate that you should always handle them
+    // We are intentionally choosing not to so we are casting it to a void to pass lint
+    void this.router.navigate([], {
+      queryParams,
+      queryParamsHandling: 'merge'
+    });
+
+	
+	
+	videoId
+	
+	
+	<app-video-list
+  [videos]="videoList | async"
+  (videoSelected)="selectVideo($event)"
+  [selectedVideo]="currentVideo"
+></app-video-list>
+<app-video-player [videoId]="obsCurrentVideoId" ></app-video-player>
+<app-stat-filters></app-stat-filters>
+
+
+    (click)="selectVideo(video)"
+	
+	
+	this.titleSearch.valueChanges.subscribe(title => console.log(title));

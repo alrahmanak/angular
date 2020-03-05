@@ -1,0 +1,89 @@
+
+@import "dhtmlx-gantt/codebase/dhtmlxgantt.css";
+.gantt-chart{
+  position: relative;
+  width: 100%;
+  height: 730px;
+}
+
+.baseline {
+  position: absolute;
+  border-radius: 2px;
+  opacity: 0.6;
+  margin-top: -7px;
+  height: 12px;
+  z-index:999999;
+  background: #ffd180;
+  border: 2px solid rgb(255, 153, 0);
+}
+
+.gantt_side_content {
+  margin-bottom: 7px;
+}
+
+.gantt_task_link .gantt_link_arrow {
+  margin-top: -12px
+}
+
+.gantt_side_content.gantt_right {
+  bottom: 0;
+}
+
+.green_color{
+  background: lightbrown;
+}
+.purple_color{
+  background: lightgrey;
+}
+.blue_color{
+  background: blue;
+}
+.orange_color{
+  background: orange;
+}
+.gray_color{
+  background: gray;
+}
+.red_color{
+  background: red;
+}
+.brown_color{
+  background: brown;
+}
+
+.gantt_task_progress{
+  background-color:rgba(35,35,35,0.17);
+}
+
+.quarter_border{
+  border-left-style: solid;
+  border-left-color: deepskyblue;
+  border-left-width: thin;
+}
+
+.WaterWell1{
+  display:inline;
+  position:absolute;
+  z-index:9999;
+  background:red;
+  left: 0px;
+  top:3px;
+  width:65px;
+  height:10px;
+}
+
+.WaterWell2{
+  display:inline;
+  position:absolute;
+  z-index:999;
+  background:brown;
+  left: 0px;
+  top:3px;
+  width:125px;
+  height:10px;
+}
+
+.updColor{
+  background-color:#4E6583!important;
+  color:white !important;
+}

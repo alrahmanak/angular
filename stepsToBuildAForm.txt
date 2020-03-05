@@ -1,0 +1,13 @@
+1. First create FormGroup in the component using a FormBuilder
+	the syntax is 
+	exFormAddress : FormGroup;
+	this.exFormAddress = fb.group({
+		address1: [],
+		address2: [],
+		city: [],
+		state: [],
+		zipCode: []
+		});
+
+2. Next create a form group html element in .html template using the formGroup and ngSubmit
+	 <form [formGroup]="details" (ngSubmit)="saveEmployeeDetails()">

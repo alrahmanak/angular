@@ -4,6 +4,12 @@ export interface User {
     fullName?: string;
 }
 
+export class MyModel {
+
+    dateValue: Date;
+
+}
+
 export const Employees: User[] = [
     { id: 11, name: 'Fazl', fullName: 'Fazl Rahman' },
     { id: 12, name: 'Haamza' },
@@ -16,3 +22,4 @@ export const Employees: User[] = [
     { id: 19, name: 'Moosa' },
     { id: 20, name: 'Ibrahim' }
   ];
+

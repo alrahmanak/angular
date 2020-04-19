@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -6,8 +7,9 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import {CalendarModule} from 'primeng/calendar';
+import {MenubarModule} from 'primeng/menubar';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-//import { CalendarModule } from 'primeng/calendar/calendar';
+
 
 
 import { AppComponent } from './app.component';
@@ -22,8 +24,10 @@ import { PgcalendarComponent } from './pgcalendar/pgcalendar.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     FormsModule,
+    MenubarModule,
     AppRoutingModule,
     CalendarModule
     

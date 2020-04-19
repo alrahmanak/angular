@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MyModel } from '../_models/appTypes';
-import {CalendarModule} from 'primeng/primeng';
-
-
 
 
 @Component({
@@ -87,6 +84,7 @@ export class PgcalendarComponent implements OnInit {
       let invalidDate = new Date();
       invalidDate.setDate(today.getDate() - 1);
       this.invalidDates = [today,invalidDate];
+      this.date1 = today;
   }
 
 

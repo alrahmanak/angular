@@ -7,6 +7,9 @@ import { GanttComponent } from './gantt/gantt.component';
 import { GanttLauncherComponent } from './gantt/gantt-launcher/gantt-launcher.component';
 import { InfoComponent } from './info/info.component';
 
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService}  from './services/in-memory-data.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +19,8 @@ import { InfoComponent } from './info/info.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [],
   bootstrap: [AppComponent]

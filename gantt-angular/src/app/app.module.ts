@@ -8,7 +8,7 @@ import { GanttLauncherComponent } from './gantt/gantt-launcher/gantt-launcher.co
 import { InfoComponent } from './info/info.component';
 
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {InMemoryDataService}  from './services/in-memory-data.service'
+import {InMemoryDataService}  from './service/in-memory-data.service'
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

@@ -7,7 +7,7 @@ import {HandleError} from './service-helper';
 export class LinkService {
     private linkUrl = "api/links";
 
-    constructor(private http: Http) {}
+    constructor(private http: HttpClient ) {}
 /** 
  * 
  *     get(): Promise<Link[]> {

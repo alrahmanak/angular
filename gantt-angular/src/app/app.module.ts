@@ -9,6 +9,7 @@ import { InfoComponent } from './info/info.component';
 
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService}  from './services/in-memory-data.service'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {InMemoryDataService}  from './services/in-memory-data.service'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [],

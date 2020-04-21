@@ -11,15 +11,15 @@ export class MyModel {
 }
 
 export const Employees: User[] = [
-    { id: 11, name: 'Fazl', fullName: 'Fazl Rahman' },
-    { id: 12, name: 'Haamza' },
-    { id: 13, name: 'Saad' },
-    { id: 14, name: 'Maaz' },
-    { id: 15, name: 'Talha' },
-    { id: 16, name: 'Mohammed' },
-    { id: 17, name: 'Ahmed' },
-    { id: 18, name: 'Ishaq' },
-    { id: 19, name: 'Moosa' },
-    { id: 20, name: 'Ibrahim' }
+    { id: 1, name: 'Fazl', fullName: 'Fazl Rahman' },
+    { id: 2, name: 'Haamza' },
+    { id: 3, name: 'Daniel' },
+    { id: 4, name: 'Mariya' },
+    { id: 5, name: 'Sweety' },
+    { id: 6, name: 'Shiny' },
+    { id: 7, name: 'Sunny' },
+    { id: 8, name: 'Crazy' },
+    { id: 9, name: 'Funny' },
+    { id: 10, name: 'Lovely' }
   ];
 

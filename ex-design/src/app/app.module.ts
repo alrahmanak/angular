@@ -15,12 +15,14 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { AppComponent } from './app.component';
 import { TwoColumnsComponent } from './two-columns/two-columns.component';
 import { PgcalendarComponent } from './pgcalendar/pgcalendar.component';
+import { PipestestComponent } from './pipestest/pipestest.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TwoColumnsComponent,
-    PgcalendarComponent
+    PgcalendarComponent,
+    PipestestComponent
   ],
   imports: [
     BrowserModule,

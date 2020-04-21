@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
     this.items = [
       {
-          label: 'File',
+          label: 'Angular Examples',
           items: [{
                   label: 'Two Column Components', 
                   icon: 'pi pi-fw pi-plus',
@@ -32,6 +32,11 @@ export class AppComponent implements OnInit {
                 label: 'Pg Calendar', 
                 icon: 'pi pi-fw pi-plus',
                 url: 'pgcalendar'
+              },
+              {
+                label: 'Ng Pipes', 
+                icon: 'pi pi-fw pi-plus',
+                url: 'pipestesturl'
               },
               {label: 'Quit'}
           ]

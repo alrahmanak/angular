@@ -11,6 +11,7 @@ export class PgcalendarComponent implements OnInit {
 
   testDateModel: MyModel;
   myDateValue: Date;
+
   
 
   date1: Date;

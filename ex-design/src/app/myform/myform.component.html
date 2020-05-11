@@ -1,0 +1,22 @@
+<p>myform works!</p>
+<form [formGroup]="professionForm"  (ngSubmit)="onSubmit()">
+  
+    <label>
+      Profession:
+      <input type="text" formControlName="profession">
+    </label>
+  
+    <label>
+      Skills:
+      <input type="text" formControlName="skills">
+    </label>
+  
+  </form>
+
+  <p>
+    Value: {{ professionForm.value }}
+  </p>
+
+  <p>
+    <button (click)="updateProfession()">Update Profession</button>
+  </p>

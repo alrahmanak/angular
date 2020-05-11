@@ -38,6 +38,12 @@ export class AppComponent implements OnInit {
                 icon: 'pi pi-fw pi-plus',
                 url: 'pipestesturl'
               },
+              {
+                label: 'My Form',
+                icon: 'pi pi-fw pi-plus',
+                url: 'myform'
+              },
+              
               {label: 'Quit'}
           ]
       }

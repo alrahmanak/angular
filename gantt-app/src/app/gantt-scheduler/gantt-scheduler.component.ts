@@ -96,7 +96,7 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
     console.log("value of scale unit" + gantt.config.scale_unit);
     console.log("value of date scale "+gantt.config.date_scale);
     this.tasklistRawdata.forEach((taskData: any) => {
-      console.log(' before value of start_date'+taskData.start_date+'  end_date '+taskData.end_date);
+      // console.log(' before value of start_date'+taskData.start_date+'  end_date '+taskData.end_date);
       //if (wellInfo.rigCd !== null && wellInfo.drlgStaDttm != null && wellInfo.drlgEndDttm != null) {
         if(taskData.hasOwnProperty('render')){
           const task: GanttTask = {
@@ -162,7 +162,11 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
                else 
                  return task.text
           };
-          console.log(' after value of start_date'+task.start_date+'  end_date '+task.end_date);
+
+
+
+
+          // console.log(' after value of start_date'+task.start_date+'  end_date '+task.end_date);
           this.taskList.push(task);
         }
 
@@ -170,12 +174,46 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
       // }
 
     });
+
     if(this.taskList != null && this.taskList.length > 0) {
       const d =  {'data': this.taskList};
       gantt.parse(JSON.stringify(d));
       gantt.render();
     }
+
+    
+
+
+    // need to test overlay ext, still not successful
+    /*
+    gantt.plugins({
+      overlay: true
+    });
+
+    var overlayControl = gantt.ext.overlay; 
+    
+    var legendTopOverlay = gantt.ext.overlay.addOverlay(function(container){
+      var legendTop = document.createElement("div");
+      legendTop.style.zIndex = "2";
+      legendTop.style.position = "fixed";
+      legendTop.style.top = "0%";
+      legendTop.style.left = gantt.$container.offsetWidth - 200 + "px";
+      legendTop.style.height = '200px'; 
+      legendTop.style.width = '200px';
+      legendTop.style.backgroundColor = 'red'; 
+      legendTop.innerHTML = 'Legend top';
+      container.appendChild(legendTop);
+    
+    });
+
+    gantt.config.readonly = true;
+    overlayControl.showOverlay(legendTopOverlay);
+    gantt.$root.classList.add("overlay_visible");
+
+
+
     this.screenBlock = false;
+    */
   }
 
 
@@ -183,7 +221,7 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
   configureGantt(){
 
     gantt.config.columns =  [
-      {name: 'label',       label: 'Rig Name',  tree: false, align: 'center' , width: '85'},
+      {name: 'label',       label: 'Resource Name',  tree: false, align: 'center' , width: '85'},
     ];
     gantt.templates.tooltip_text = function(start,end,task){
       return "<b>Task:</b> "+task.text+"<br/><b>Duration:</b> " + task.duration;
@@ -200,9 +238,30 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
     };
 
     gantt.templates.timeline_cell_class = function(item,date){
+
+      console.log("Day is :", date.getDay(), " : Month is:", date.getMonth(), ": year is :", date.getFullYear())
+      var cell_start = gantt.date.day_start(new Date(date));
+      var t_day_start = gantt.date.day_start(new Date());
+      console.log("***** Gantt cell date is :", cell_start);
+      console.log("***** Today date is :", t_day_start);
+
+      if (+cell_start == +t_day_start){
+        console.log("***** Today is matches with gantt date:");
+        return "today";
+      }
+
+      // for highlighting beginning of year
+      if(date.getDay() < 7 && date.getMonth() == 0)
+        return "begin_year";
+
+      if(date.getDay() < 7 && date.getMonth() == 6)
+        return "middle_year";
+        /** **/
+
       if(date.getMonth() %3==0)
         return "quarter_border";
     };
+
 
     // adding baseline display
     /*gantt.addTaskLayer(function draw_planned(task){
@@ -247,7 +306,7 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
     gantt.config.min_column_width = 50;
     gantt.config.scale_height = 50;
     var quarter_template = function(date){
-      console.log("Year value "+date.getFullYear());
+      //console.log("Year value "+date.getFullYear());
       return "Q" + (Math.floor((date.getMonth() / 3)) + 1)+", "+date.getFullYear();
     }
 

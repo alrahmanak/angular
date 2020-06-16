@@ -28,9 +28,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/codebase/dhtmlxgantt.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./src/assets/codebase/dhtmlxgantt.js",
+              "./src/assets/codebase/ext/dhtmlxgantt_overlay.js"
+            ]
           },
           "configurations": {
             "production": {

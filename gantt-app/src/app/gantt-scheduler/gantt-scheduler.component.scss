@@ -59,6 +59,7 @@
   border-left-style: solid;
   border-left-color: deepskyblue;
   border-left-width: thin;
+  z-index:9999;
 }
 
 .WaterWell1{
@@ -87,3 +88,43 @@
   background-color:#4E6583!important;
   color:white !important;
 }
+
+.overlay_visible .gantt_task_line,
+  .overlay_visible .gantt_task_link{
+    opacity: 0.6;
+  }
+
+  .gantt_marker.today{
+    background: #ffb121;
+  }
+
+  .weekend{ background: #00ff00 !important;}
+
+  .today{
+    border-left-style: solid;
+    border-left-color: DodgerBlue !important;
+    border-left-width: thin;
+    opacity: 0.8;
+    z-index: 9999999;
+  }
+
+  .begin_year{
+    border-left-style: solid;
+    border-left-color: rgb(38, 9, 201) !important;
+    border-left-width: thick;
+    opacity: 0.8;
+    z-index: 9999999;
+  }
+
+  .middle_year{
+    border-left-style: solid;
+    border-left-color: DodgerBlue !important;
+    border-left-width: thick;
+    opacity: 0.8;
+    z-index: 9999999;
+  }
+    
+  .year_start{
+    border-left: 2px PowderBlue solid;
+    z-index: 9999999;
+  }

@@ -19,7 +19,8 @@
     "@angular/platform-browser": "~8.2.3",
     "@angular/platform-browser-dynamic": "~8.2.3",
     "@angular/router": "~8.2.3",
-    "dhtmlx-gantt": "file:C:/training_office/angular/gantt-dhtmlx",
+    "dhtmlx-gantt": "file:C:/training_office/downloads/gantt_7.0.5_ultimate",
+    
     "npm": "^6.9.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.11.1",

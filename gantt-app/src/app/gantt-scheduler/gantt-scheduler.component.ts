@@ -86,7 +86,9 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
     this.configureScales();
     //this.zoom_tasks();
     gantt.config.open_tree_initially = true;
-    gantt.init(this.ganttContainer.nativeElement);
+    
+
+  gantt.init(this.ganttContainer.nativeElement);
     //this.processChartData();
   }
 
@@ -179,41 +181,15 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
       const d =  {'data': this.taskList};
       gantt.parse(JSON.stringify(d));
       gantt.render();
+      //marker
+      //gantt.renderMarkers();
     }
 
     
 
 
     // need to test overlay ext, still not successful
-    /*
-    gantt.plugins({
-      overlay: true
-    });
-
-    var overlayControl = gantt.ext.overlay; 
     
-    var legendTopOverlay = gantt.ext.overlay.addOverlay(function(container){
-      var legendTop = document.createElement("div");
-      legendTop.style.zIndex = "2";
-      legendTop.style.position = "fixed";
-      legendTop.style.top = "0%";
-      legendTop.style.left = gantt.$container.offsetWidth - 200 + "px";
-      legendTop.style.height = '200px'; 
-      legendTop.style.width = '200px';
-      legendTop.style.backgroundColor = 'red'; 
-      legendTop.innerHTML = 'Legend top';
-      container.appendChild(legendTop);
-    
-    });
-
-    gantt.config.readonly = true;
-    overlayControl.showOverlay(legendTopOverlay);
-    gantt.$root.classList.add("overlay_visible");
-
-
-
-    this.screenBlock = false;
-    */
   }
 
 
@@ -239,14 +215,14 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
 
     gantt.templates.timeline_cell_class = function(item,date){
 
-      console.log("Day is :", date.getDay(), " : Month is:", date.getMonth(), ": year is :", date.getFullYear())
+      //console.log("Day is :", date.getDay(), " : Month is:", date.getMonth(), ": year is :", date.getFullYear())
       var cell_start = gantt.date.day_start(new Date(date));
       var t_day_start = gantt.date.day_start(new Date());
-      console.log("***** Gantt cell date is :", cell_start);
-      console.log("***** Today date is :", t_day_start);
+      //console.log("***** Gantt cell date is :", cell_start);
+      //console.log("***** Today date is :", t_day_start);
 
       if (+cell_start == +t_day_start){
-        console.log("***** Today is matches with gantt date:");
+        //console.log("***** Today is matches with gantt date:");
         return "today";
       }
 
@@ -262,6 +238,19 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
         return "quarter_border";
     };
 
+
+
+    gantt.plugins({ 
+      marker: true 
+    }); 
+ 
+    let dateToStr = gantt.date.date_to_str(gantt.config.task_date);
+    gantt.addMarker({
+        start_date: new Date(), //a Date object that sets the marker's date
+        css: "today", //a CSS class applied to the marker
+        text: "Now", //the marker title
+        title: dateToStr( new Date()) // the marker's tooltip
+    });
 
     // adding baseline display
     /*gantt.addTaskLayer(function draw_planned(task){
@@ -316,6 +305,20 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
       {unit: 'month', step: 1, format: "%M"}
     ];
 
+    gantt.plugins({ 
+      marker: true 
+    }); 
+
+  console.log("calling addmarker ");
+
+  var dateToStr = gantt.date.date_to_str(gantt.config.task_date);
+    var markerId = gantt.addMarker({
+        start_date: new Date(), //a Date object that sets the marker's date
+        css: "WaterWell2", //a CSS class applied to the marker
+        text: "Now", //the marker title
+        title: dateToStr( new Date()) // the marker's tooltip
+    });
+
 
   }
 
@@ -324,13 +327,7 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
     console.log("inside ngOnChnages "+this.scenarioNum );
   }
 
-/*byId(list, id){
-  for (var i = 0; i < list.length; i++) {
-    if (list[i].key == id)
-      return list[i].label || "";
-  }
-  return "";
-}*/
+
 
 
 

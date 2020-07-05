@@ -9,7 +9,10 @@ import {SchedulerServiceService} from '../services/scheduler-service.service'
 import {GanttTask} from "../models/gantttask";
 import {DatePipe} from "@angular/common";
 
+//const apiJS = require('../assets/gantt_print.js');
+
 declare let gantt: any;
+declare var System: any; 
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -180,7 +183,15 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
     if(this.taskList != null && this.taskList.length > 0) {
       const d =  {'data': this.taskList};
       gantt.parse(JSON.stringify(d));
-      gantt.render();
+      gantt.render(); 
+
+      var current_time = gantt.getTask(2).start_date;
+
+        var todayMarker = gantt.addMarker({ 
+            start_date: new Date(), 
+            css: "today", 
+            text: 'Now',
+        });
       //marker
       //gantt.renderMarkers();
     }
@@ -453,7 +464,19 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
     gantt.render();
   }
 
+  export_data(){
+    /*
+    System.import('../assets/gantt_print.js').then(file => {
+      //file.test();
+      
+   });*/
 
+   gantt.exportToPDF({
+        server:"http://localhost:8192",
+        raw:true
+      });
+    
+ }
 
 }
 

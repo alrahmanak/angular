@@ -43,7 +43,11 @@ export class AppComponent implements OnInit {
                 icon: 'pi pi-fw pi-plus',
                 url: 'myform'
               },
-              
+              {
+                label: 'Template Form',
+                icon: 'pi pi-fw pi-plus',
+                url: 'tform'
+              },
               {label: 'Quit'}
           ]
       }

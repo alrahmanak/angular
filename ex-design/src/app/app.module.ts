@@ -7,8 +7,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
+// primeNg components
 import {CalendarModule} from 'primeng/calendar';
 import {MenubarModule} from 'primeng/menubar';
+import {InputTextModule} from 'primeng/inputtext';
+
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 
@@ -18,6 +21,7 @@ import { TwoColumnsComponent } from './two-columns/two-columns.component';
 import { PgcalendarComponent } from './pgcalendar/pgcalendar.component';
 import { PipestestComponent } from './pipestest/pipestest.component';
 import { MyformComponent } from './myform/myform.component';
+import { TmpltformComponent } from './tmpltform/tmpltform.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { MyformComponent } from './myform/myform.component';
     TwoColumnsComponent,
     PgcalendarComponent,
     PipestestComponent,
-    MyformComponent
+    MyformComponent,
+    TmpltformComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,7 @@ import { MyformComponent } from './myform/myform.component';
     ReactiveFormsModule,
     MenubarModule,
     AppRoutingModule,
+    InputTextModule,
     CalendarModule
     
     

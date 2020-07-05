@@ -33,6 +33,7 @@
             ],
             "scripts": [
               "./src/assets/codebase/dhtmlxgantt.js",
+              "./src/assets/gantt_print.js",
               "./node_modules/dhtmlx-gantt/codebase/ext/dhtmlxgantt_marker.js"
             ]
           },

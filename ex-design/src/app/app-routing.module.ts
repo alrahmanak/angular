@@ -5,6 +5,8 @@ import { PgcalendarComponent } from './pgcalendar/pgcalendar.component';
 import { PipestestComponent } from './pipestest/pipestest.component';
 import { MyformComponent } from './myform/myform.component';
 import { TmpltformComponent } from './tmpltform/tmpltform.component';
+import { PlistdemoComponent } from './plistdemo/plistdemo.component';
+import { FbFormComponent } from './fb-form/fb-form.component';
 
 
 const routes: Routes = [
@@ -12,7 +14,9 @@ const routes: Routes = [
   { path: 'pgcalendar', component: PgcalendarComponent },
   { path: 'pipestesturl', component: PipestestComponent },
   { path: 'myform', component: MyformComponent },
-  { path: 'tform', component: TmpltformComponent }
+  { path: 'fbform', component: FbFormComponent },
+  { path: 'tform', component: TmpltformComponent },
+  { path: 'plist', component: PlistdemoComponent }
 
 ];
 

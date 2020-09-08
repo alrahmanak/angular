@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {CalendarModule} from 'primeng/calendar';
 import {MenubarModule} from 'primeng/menubar';
 import {InputTextModule} from 'primeng/inputtext';
-
+import {PickListModule} from 'primeng/picklist';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 
@@ -22,6 +22,9 @@ import { PgcalendarComponent } from './pgcalendar/pgcalendar.component';
 import { PipestestComponent } from './pipestest/pipestest.component';
 import { MyformComponent } from './myform/myform.component';
 import { TmpltformComponent } from './tmpltform/tmpltform.component';
+import { PlistdemoComponent } from './plistdemo/plistdemo.component';
+import { FbFormComponent } from './fb-form/fb-form.component';
+import { HttpExampleComponent } from './http-example/http-example.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { TmpltformComponent } from './tmpltform/tmpltform.component';
     PgcalendarComponent,
     PipestestComponent,
     MyformComponent,
-    TmpltformComponent
+    TmpltformComponent,
+    PlistdemoComponent,
+    FbFormComponent,
+    HttpExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,8 @@ import { TmpltformComponent } from './tmpltform/tmpltform.component';
     MenubarModule,
     AppRoutingModule,
     InputTextModule,
-    CalendarModule
+    CalendarModule,
+    PickListModule
     
     
   ],

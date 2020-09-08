@@ -1,0 +1,15 @@
+<p>plistdemo works!</p>
+<p>https://primefaces.org/primeng/showcase/#/picklist</p>
+<p-pickList [source]="srcEmployees" [target]="tgtEmployees" sourceHeader="Available" targetHeader="Selected" dragdrop="true"
+    [responsive]="true" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}" filterBy="name"
+    sourceFilterPlaceholder="Search by name" targetFilterPlaceholder="Search by name">
+    <ng-template let-user pTemplate="item">
+        <div class="user-item">
+            <div class="product-list-detail">
+                <h5 class="p-mb-2">{{user.name}}</h5>
+                <i class="pi pi-tag product-category-icon"></i>
+                <span class="product-category">{{user.id}}</span>
+            </div>
+        </div>
+    </ng-template>
+</p-pickList>

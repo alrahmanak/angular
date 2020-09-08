@@ -39,6 +39,11 @@ export class AppComponent implements OnInit {
                 url: 'pipestesturl'
               },
               {
+                label: 'FB Form',
+                icon: 'pi pi-fw pi-plus',
+                url: 'fbform'
+              },
+              {
                 label: 'My Form',
                 icon: 'pi pi-fw pi-plus',
                 url: 'myform'
@@ -48,6 +53,12 @@ export class AppComponent implements OnInit {
                 icon: 'pi pi-fw pi-plus',
                 url: 'tform'
               },
+              {
+                label: 'Pick List',
+                icon: 'pi pi-fw pi-plus',
+                url: 'plist'
+              },
+              
               {label: 'Quit'}
           ]
       }

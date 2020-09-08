@@ -70,6 +70,8 @@ export class PgcalendarComponent implements OnInit {
 
       let today = new Date();
       let month = today.getMonth();
+      let dayOfWeek = today.getDay(); //Gives the nth day of week (1 to 7)
+      let dayOfMonth = today.getDate();
       let year = today.getFullYear();
       let prevMonth = (month === 0) ? 11 : month -1;
       let prevYear = (prevMonth === 11) ? year - 1 : year;

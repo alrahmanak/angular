@@ -4,6 +4,7 @@ export interface User {
     fullName?: string;
 }
 
+
 export class MyModel {
 
     dateValue: Date;

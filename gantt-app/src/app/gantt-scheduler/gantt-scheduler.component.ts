@@ -8,7 +8,7 @@ import {GantttaskService} from "../services/gantttask.service";
 import {SchedulerServiceService} from '../services/scheduler-service.service'
 import {GanttTask} from "../models/gantttask";
 import {DatePipe} from "@angular/common";
-
+import '../../assets/gantt_print.js'
 //const apiJS = require('../assets/gantt_print.js');
 
 declare let gantt: any;
@@ -472,11 +472,28 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
    });*/
 
    gantt.exportToPDF({
-        server:"http://localhost:8192",
+        name: "scheduler_gantt.pdf",
         raw:true
       });
     
  }
 
+}
+
+function onDragEnd(startPoint,endPoint,startDate,endDate,tasksBetweenDates,tasksInRow){
+  if (tasksInRow.length === 1) {
+      var parent = tasksInRow[0];
+      gantt.createTask({
+          text:"Subtask of " + parent.text,
+          start_date: gantt.roundDate(startDate),
+          end_date: gantt.roundDate(endDate)
+      }, parent.id);
+  } else if (tasksInRow.length === 0) {
+      gantt.createTask({
+          text:"New task",
+          start_date: gantt.roundDate(startDate),
+          end_date: gantt.roundDate(endDate)
+      });
+  }
 }
 

@@ -1,2 +1,6 @@
 # angular
-A really nice simple angular app with menu, examples of some primeNg component usages and others
+Several angular app examples
+## ex-design
+Examples of some primeNg component usages like menu, calendar, form elements in template and reactive forms
+## gant app
+Example of dhtmlx gantt scheduler

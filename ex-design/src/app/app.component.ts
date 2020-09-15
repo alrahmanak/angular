@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
       {
           label: 'Angular Examples',
           items: [{
-                  label: 'Two Column Components', 
+                  label: 'Two Columns', 
                   icon: 'pi pi-fw pi-plus',
                   url: 'twocol'
               },
@@ -39,17 +39,17 @@ export class AppComponent implements OnInit {
                 url: 'pipestesturl'
               },
               {
-                label: 'Http Example with promise', 
+                label: 'Http Observable', 
                 icon: 'pi pi-fw pi-plus',
                 url: 'httpex'
               },
               {
-                label: 'FB Form',
+                label: 'Reactive Form - 1',
                 icon: 'pi pi-fw pi-plus',
                 url: 'fbform'
               },
               {
-                label: 'My Form',
+                label: 'Reactive Form - 0',
                 icon: 'pi pi-fw pi-plus',
                 url: 'myform'
               },

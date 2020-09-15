@@ -1,1 +1,22 @@
-<p>http-example works!</p>
+
+<H2>Http Example</H2>
+<H3>Retrieving Words that Sounds like Funny!</H3>
+<!--
+<span>{{results}}</span>
+{"word":"money","score":4415,"numSyllables":2}
+-->
+<table class="table">
+    <thead>
+      <tr>
+        <th>Word</th>
+        <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let res of results">
+        <td>{{res.word}}</td>
+        <td>{{res.score}}</td>
+      </tr>
+    </tbody>
+</table>

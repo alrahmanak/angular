@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class ApiService {
  
   baseURL: string = "http://localhost:3000/";
- 
+  
   constructor(private http: HttpClient) {
   }
  
@@ -21,6 +21,19 @@ export class ApiService {
     const body=JSON.stringify(user);
     console.log(body)
     return this.http.post(this.baseURL + 'user', body,{'headers':headers})
+  }
+  getFunnyWords():Observable<Object[]> {
+    const service_url = 'https://api.datamuse.com/words?rel_rhy=funny';
+   
+    return this.http.get<Object[]>(service_url);
+      /** 
+      this.service_url)
+      .toPromise()
+      .then(res => res)
+      .catch(err => {
+        return Promise.reject(err || 'Server error')
+      })
+      */
   }
  
 }

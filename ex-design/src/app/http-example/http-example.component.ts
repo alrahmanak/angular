@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../_service/api.service';
 
 @Component({
   selector: 'app-http-example',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./http-example.component.css']
 })
 export class HttpExampleComponent implements OnInit {
+  results:Object[];
+  errorMessage:string;
 
-  constructor() { }
+  constructor(private _apiService:ApiService) { 
+
+  }
 
   ngOnInit() {
+    
+    this._apiService.getFunnyWords()
+      .subscribe(
+        res => {
+          this.results = res;
+        }
+      ),
+      error => this.errorMessage = <any>error;
   }
+
+
 
 }

@@ -39,6 +39,11 @@ export class AppComponent implements OnInit {
                 url: 'pipestesturl'
               },
               {
+                label: 'Http Example with promise', 
+                icon: 'pi pi-fw pi-plus',
+                url: 'httpex'
+              },
+              {
                 label: 'FB Form',
                 icon: 'pi pi-fw pi-plus',
                 url: 'fbform'

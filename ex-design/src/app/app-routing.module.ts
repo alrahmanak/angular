@@ -7,12 +7,14 @@ import { MyformComponent } from './myform/myform.component';
 import { TmpltformComponent } from './tmpltform/tmpltform.component';
 import { PlistdemoComponent } from './plistdemo/plistdemo.component';
 import { FbFormComponent } from './fb-form/fb-form.component';
+import { HttpExampleComponent } from './http-example/http-example.component';
 
 
 const routes: Routes = [
   { path: 'twocol', component: TwoColumnsComponent },
   { path: 'pgcalendar', component: PgcalendarComponent },
   { path: 'pipestesturl', component: PipestestComponent },
+  { path: 'httpex', component: HttpExampleComponent},
   { path: 'myform', component: MyformComponent },
   { path: 'fbform', component: FbFormComponent },
   { path: 'tform', component: TmpltformComponent },

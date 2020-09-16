@@ -28,8 +28,10 @@ export class FbFormComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
+    
     let month = this.profileForm.value.dob.getMonth();
     let year = this.profileForm.value.dob.getFullYear();
+    /**/
     console.info("dob value is:", this.profileForm.value.dob)
     console.info(" day value is:", this.profileForm.value.dob.getDate());
     console.info('mont value is ', month, ' year value is:', year);

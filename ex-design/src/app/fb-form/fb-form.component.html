@@ -39,11 +39,12 @@
       Zip Code:
       <input type="text" formControlName="zip">
     </label>
-
-    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
-
 </div>
+<div style="align-items: center;">
+  <button type="submit" >Submit</button>
+</div>
+
 </form>
 <p>
-  Value: {{ profileForm.value }}
+  Value: {{ profileForm.value | json }}
 </p>

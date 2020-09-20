@@ -1,6 +1,7 @@
 (function(){
 
   var apiUrl = "https://export.dhtmlx.com/gantt";
+  //var apiUrl = "http://localhost:8192/gantt";
   
   var templates = [
     "leftside_text",

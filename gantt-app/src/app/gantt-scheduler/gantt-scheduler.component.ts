@@ -158,12 +158,12 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
           gantt.templates.task_text=function(start, end, task){
           
               if(task.hasOwnProperty("waterSupply1Name") && task.hasOwnProperty("waterSupply2Name") && task.waterSupply1Name !=null && task.waterSupply2Name!=null)
-               return "<div style='display:inline; '>"+task.text+"</div><div style='display:inline; position:absolute; background:red; left: 0px; top:3px;width:65px;height:10px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>"+
-                 "<div style='display:inline; position:absolute; background:brown; left: 0px; top:16px;width:125px;height:10px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>";
+               return "<div style='display:inline; '>"+task.text+"</div><div style='display:inline; position:absolute; background:red; left: 0px; top:2px;width:65px;height:5px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>"+
+                 "<div style='display:inline; position:absolute; background:brown; left: 0px; top:16px;width:125px;height:5px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>";
             else if(task.hasOwnProperty("waterSupply1Name") && task.waterSupply1Name !=null) 
-                 return "<div style='display:inline; position:absolute; background:red; left: 0px; top:3px;width:65px;height:10px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div style='display:inline; '>"+task.text+"</div>"
+                 return "<div style='display:inline; position:absolute; background:red; left: 0px; top:2px;width:65px;height:5px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div style='display:inline; '>"+task.text+"</div>"
               else if(task.hasOwnProperty("waterSupply2Name") && task.waterSupply2Name !=null) 
-                  return "<div style='display:inline; position:absolute; background:brown; left: 0px; top:3px;width:125px;height:10px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div style='display:inline; '>"+task.text+"</div>"
+                  return "<div style='display:inline; position:absolute; background:brown; left: 0px; top:3px;width:125px;height:5px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div style='display:inline; '>"+task.text+"</div>"
                else 
                  return task.text
           };
@@ -206,6 +206,7 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
 
 
   configureGantt(){
+    gantt.config.row_height = 55;
 
     gantt.config.columns =  [
       {name: 'label',       label: 'Resource Name',  tree: false, align: 'center' , width: '85'},
@@ -263,20 +264,7 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
         title: dateToStr( new Date()) // the marker's tooltip
     });
 
-    // adding baseline display
-    /*gantt.addTaskLayer(function draw_planned(task){
-      var main_div = document.createElement('div');
-
-      if (gantt.hasChild(task.id) && task.render == 'split') {
-        gantt.eachTask(function(child){
-          this.generate_elements(child.id, main_div)
-        },task.id);
-      }
-      else this.generate_elements(task.id, main_div);
-
-      return main_div;
-    };*/
-    gantt.config.row_height = 80;
+   
   }
 
 
@@ -315,10 +303,10 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
       {unit: 'year_quarter', step: 1, template: quarter_template},
       {unit: 'month', step: 1, format: "%M"}
     ];
-
+/*
     gantt.plugins({ 
       marker: true 
-    }); 
+    }); */
 
   console.log("calling addmarker ");
 
@@ -339,35 +327,6 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
   }
 
 
-
-
-
-   generate_elements(id, main_div){
-    var task = gantt.getTask(id);
-    var sizes = gantt.getTaskPosition(task, task.start_date,task.end_date);
-
-    if(task.hasOwnProperty("waterSupply1Name")) {
-      var el1 = document.createElement('div');
-      el1.className = 'WaterWell1';
-      el1.style.left = sizes.left + 'px';
-      el1.style.width = /*sizes.width + 'px';*/ '50px'
-      el1.style.top = sizes.top + 13 + 'px';
-      main_div.appendChild(el1)
-    }
-
-    if(task.hasOwnProperty("waterSupply2Name")) {
-
-      var el2 = document.createElement('div');
-      el2.className = 'WaterWell2';
-      el2.style.left = sizes.left + 'px';
-      el2.style.width = /*sizes.width + 'px';*/ '50px'
-      el2.style.top = sizes.top + 3 + 'px';
-      main_div.appendChild(el2)
-    }
-
-    return;
-
-  }
 
   zoom_tasks(){
     switch(this.selectedValue){
@@ -465,18 +424,21 @@ export class GanttSchedulerComponent implements OnInit, AfterViewInit {
   }
 
   export_data(){
-    /*
-    System.import('../assets/gantt_print.js').then(file => {
-      //file.test();
-      
-   });*/
 
-   gantt.exportToPDF({
-        name: "scheduler_gantt.pdf",
-        raw:true
-      });
+    let header:string =  " .gantt_task_content {  font-size: 11px;  font-weight: bold;  width: 100%;  top: 0;  cursor: pointer;  position: absolute;  white-space: nowrap;  text-align: center;} "
+    + " .gantt_task_line.gantt_task_inline_color .gantt_task_progress {  background-color: #ffffff;  opacity: 0.0;}  "
+    + ".blue_color {  background: #a3f7ff;}   .sand_color  {  background: #fffed6 !important;}  "
+    + ".gantt_task_progress{  background-color:rgba(35,35,35,0.17);} .year_start_border{  border-left: 2px blue solid;  opacity: 0.8;  z-index: 9999999;}   "
+    + " .year_middle_border{  border-left-style: dashed;  border-left-color: #3f51b5 !important;  border-bottom-width: 0.5px;  opacity: 0.8;  z-index: 9999999;}";
+
+    let header_style = "<h4>" + "Scheduler Latest Schedule" + "</h4>" + "<style>" + header + "</style>";
+    gantt.exportToPDF({
+          name: "scheduler_gantt.pdf",
+          header: header_style,
+          raw:true
+        });
     
- }
+  }
 
 }
 
